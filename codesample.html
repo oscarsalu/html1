@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Code Sample</title>
+</head>
+
+<body>
+    <p>This is an paragraph</p>
+
+    <br>
+    <h1>This is an Ordered list (Using Heading 1)</h1>
+    <ol>
+        <li>ordered list 1</li>
+        <li>ordered list 2</li>
+        <li>ordered list 3</li>
+    </ol>
+
+    <br>
+    <h2>This is Unordered list (Using Heading 2)</h2>
+    <ul>
+        <li> top </li>
+        <li> middle </li>
+        <li> bottom </li>
+    </ul>
+    <br>
+    <h3>An example of a form (Using Heading 3)</h3>
+    <form action="myaddress.com" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="user" value="Oscar">
+        </div>
+        <div>
+            <input type="radio" name="gender" value="male" checked> Male
+            <br>
+            <input type="radio" name="gender" value="female"> Female
+            <br>
+        </div>
+        <div>
+            <select name="Books">
+                <option value="whois" selected>whois</option>
+                <option value="howto">howto</option>
+                <option value="whatis">whatis</option>
+                <option value="iam">iam</option>
+            </select>
+        </div>
+        <div>
+            <label for="comment">Comments:</label>
+            <textarea id="comment" name="comments"></textarea>
+        </div>
+        <div>
+            <button type="button" onclick="alert('This is part of a form')">Click Me!</button>
+            <div>
+    </form>
+
+    <h4>Example of a canvas (Using Heading 4)</h4>
+    
+    <canvas id="one"></canvas>
+
+    <h5>Example of SVG (Using Heading 5)</h5>
+    <svg width="300" height="200">
+        <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:rgb(15, 24, 107);stroke:rgb(53, 40, 53);stroke-width:5;fill-rule:evenodd;" />
+
+    </svg>
+
+    <h6>Google Maps (Using Heading 6)</h6>
+    <div id="map" style="width:50%;height:400px;">Map Section</div>
+</body>
+<script>
+        var canvas = document.getElementById('one');
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'green';
+        ctx.fillRect(10, 10, 100, 100);
+
+        function myMap() {
+                var mapProp = {
+                    center: new google.maps.LatLng(-1.291514, 36.874260),
+                    zoom:10,
+                };
+                var map = new google.maps.Map(document.getElementById("map"), mapProp);
+            }
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5Xn7eMD2FfBox94RusgdjabCGOkYPjR8&callback=myMap"async defer></script>
+</html>
