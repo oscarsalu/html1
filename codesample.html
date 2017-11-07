@@ -4,9 +4,83 @@
 <head>
     <meta charset="utf-8">
     <title>Code Sample</title>
+    <style type="text/css">
+        .style {
+            margin: 10px auto;
+            max-width: 800px;
+            padding: 20px 12px 10px 20px;
+            font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+    
+        .style li {
+            padding: 0;
+            display: block;
+            list-style: none;
+            margin: 10px 0 0 0;
+        }
+    
+        .style label {
+            margin: 0 0 3px 0;
+            padding: 0px;
+            display: block;
+            font-weight: bold;
+        }
+    
+        .style input[type=text],
+        .style input[type=date],
+        .style input[type=datetime],
+        .style input[type=number],
+        .style input[type=search],
+        .style input[type=time],
+        .style input[type=url],
+        .style input[type=email],
+        textarea,
+        select {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            border: 1px solid #BEBEBE;
+            padding: 7px;
+            margin: 0px;
+            -webkit-transition: all 0.30s ease-in-out;
+            outline: none;
+        }
+    
+        .style input[type=text]:focus,
+        .style input[type=date]:focus,
+        .style input[type=datetime]:focus,
+        .style input[type=number]:focus,
+        .style input[type=search]:focus,
+        .style input[type=time]:focus,
+        .style input[type=url]:focus,
+        .style input[type=email]:focus,
+        .style textarea:focus,
+        .style select:focus {
+            box-shadow: 0 0 8px #88D5E9;
+            border: 1px solid #88D5E9;
+        }
+    
+        .style input[type=submit],
+        .style input[type=button] {
+            background: #4B99AD;
+            padding: 8px 15px 8px 15px;
+            border: none;
+            color: #fff;
+        }
+    
+        .style button[type=submit]:hover,
+        .style button[type=button]:hover {
+            background: #4691A4;
+            box-shadow: none;
+        }
+    
+        .style .required {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="style">
     <p>This is an paragraph</p>
 
     <br>
@@ -26,36 +100,51 @@
     </ul>
     <br>
     <h3>An example of a form (Using Heading 3)</h3>
+
     <form action="myaddress.com" method="post">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="user" value="Oscar">
-        </div>
-        <div>
-            <input type="radio" name="gender" value="male" checked> Male
-            <br>
-            <input type="radio" name="gender" value="female"> Female
-            <br>
-        </div>
-        <div>
-            <select name="Books">
-                <option value="whois" selected>whois</option>
-                <option value="howto">howto</option>
-                <option value="whatis">whatis</option>
-                <option value="iam">iam</option>
-            </select>
-        </div>
-        <div>
-            <label for="comment">Comments:</label>
-            <textarea id="comment" name="comments"></textarea>
-        </div>
-        <div>
-            <button type="button" onclick="alert('This is part of a form')">Click Me!</button>
-            <div>
+        <ul>
+            <li>
+                <label>Full Name
+                </label>
+                <input type="text" name="fname" style='width:100%' placeholder="First" />&nbsp;
+                <input type="text" name="lname" style='width:100%' placeholder="Last" />
+            </li>
+            <li>
+                <input type="radio" name="gender" value="male" checked> Male
+                <br>
+                <input type="radio" name="gender" value="female"> Female
+                <br>
+            </li>
+            <li>
+                <label>Email
+                </label>
+                <input type="email" name="youremail" style="width:100%" />
+            </li>
+            <li>
+                <label>Subject</label>
+                <select name="subject" style="width:100%">
+                    <option value="option1">About Us</option>
+                    <option value="option1">Products offered</option>
+                    <option value="option1">Employment</option>
+                </select>
+            </li>
+            <li><label for="image">Upload profile pic</label>
+                <input type="file" style="width:100%" >
+            </li>
+            <li>
+                <label>Your Message
+                </label>
+                <textarea name="comment" id="comment" style="width:100%; height:200px;"></textarea>
+            </li>
+            <li>
+                <button type="button" onclick="alert('submitted to myaddress.com')">Click Me!</button>
+            </li>
+        </ul>
     </form>
 
-    <h4>Example of a canvas (Using Heading 4)</h4>
-    
+
+
+    <h3>Example of a canvas</h3>    
     <canvas id="one"></canvas>
 
     <h5>Example of SVG (Using Heading 5)</h5>
@@ -63,23 +152,48 @@
         <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:rgb(15, 24, 107);stroke:rgb(53, 40, 53);stroke-width:5;fill-rule:evenodd;" />
 
     </svg>
-
-    <h6>Google Maps (Using Heading 6)</h6>
+ </div>
+    <h3>Fedha plaza offices</h3>
     <div id="map" style="width:50%;height:400px;">Map Section</div>
 </body>
 <script>
+
         var canvas = document.getElementById('one');
         var ctx = canvas.getContext('2d');
-        ctx.fillStyle = 'green';
-        ctx.fillRect(10, 10, 100, 100);
+        ctx.font = "100px Arial";
+        ctx.fillText("C", 10, 100);
+        ctx.moveTo(120,20);
+        ctx.lineTo(90,100);
+        ctx.stroke();
+        ctx.moveTo(120,20);
+        ctx.lineTo(150,100);
+        ctx.stroke();
+        ctx.moveTo(105,60);
+        ctx.lineTo(135,60);
+        ctx.stroke();
+        var grd = ctx.createLinearGradient(0, 0, 200, 0);
+        grd.addColorStop(0, "red");
+        ctx.fillStyle = grd;
+        ctx.fillRect(160, 20, 150, 20);
+        ctx.fillStyle = "#0000ff";
+        ctx.fillRect(220, 20, 10, 80);
 
-        function myMap() {
-                var mapProp = {
-                    center: new google.maps.LatLng(-1.291514, 36.874260),
-                    zoom:10,
-                };
-                var map = new google.maps.Map(document.getElementById("map"), mapProp);
-            }
+
+        
+            function myMap() {
+
+                    var mapProp = {
+                        center: new google.maps.LatLng(-1.2636, 36.8066),
+                        zoom: 19
+                    }
+
+                    var map = new google.maps.Map(document.getElementById("map"), mapProp);
+
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(-1.2636, 36.8066),
+                        map: map,
+                    });
+                }
 
 
 </script>
